@@ -75,4 +75,5 @@ for i , ci in enumerate(city1):
     if i % 2 != 0:
         city1[i] =  replace_city
         
-print(f"after update => {city1}")
+print(f"after update => {city1}")  
+print(f"done")
