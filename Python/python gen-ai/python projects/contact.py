@@ -38,27 +38,27 @@ def view_contact():
     for i,c in enumerate(Contacts,start=1):
         print(f"{i}. {c["name"]}  | {c["phone"] } | {c["email"]}")
 #3. Delete contact
-def delete_contact(serachName):
-    if serachName.isdigit():
+def delete_contact(searchname):
+    if searchname.isdigit():
         print("Invalid name only string name -->\n")
         return
     for member in Contacts:
-        if member["name"].lower() == serachName.lower():
+        if member["name"].lower() == searchname.lower():
             Contacts.remove(member)
-            print(f"contact {serachName} -> deleted succesfully !!\n")
+            print(f"contact {searchname} -> deleted succesfully !!\n")
             return
-    print(F"contact for {serachName} not found !!\n")
+    print(F"contact for {searchname} not found !!\n")
 
 #4 .Search contact
-def search_contact(serachName):
-    if serachName.isdigit():
+def search_contact(searchname):
+    if searchname.isdigit():
         print("Invalid name only string name -->\n")
         return
     for member in Contacts:
-        if member["name"].lower() == serachName.lower():
+        if member["name"].lower() == searchname.lower():
             print(f"found {member["name"]} | {member["phone"]} | {member["email"]}\n")
             return
-    print(F"contact for {serachName} not found !!\n")
+    print(F"contact for {searchname} not found !!\n")
 
 
 
