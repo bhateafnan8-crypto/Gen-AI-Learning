@@ -4,7 +4,24 @@
 """
 # Soltuion-> 
 print("---------------------------")
+class Car:
+    # instance method - constuctor
+    def __init__(self):
+        self.__speed = 80
 
+    def get_speed(self):
+        return f"{self.__speed} kph"
+
+    def brake(self):
+        self.__speed = 0
+        return f"{self.__speed} kph"
+
+    def  accelerate(self):
+        self.__speed += 20
+        return f"{self.__speed} kph"
+
+Bugatti = Car()
+print(f"speed => {Bugatti.get_speed()} || accelerate speed => {Bugatti.accelerate()} || brake speed => {Bugatti.brake()}")
 
 
 
@@ -14,6 +31,16 @@ print("---------------------------")
 """
 # Soltuion-> 
 print("---------------------------")
+class Student:
+    # instance method - constuctor
+    def __init__(self):
+        self.__marks = 80
+
+    def get_marks(self):
+        return self.__marks
+
+adfar = Student()
+print(f"marks => {adfar.get_marks()}")
 
 
 
@@ -24,6 +51,17 @@ print("---------------------------")
 """
 # Soltuion-> 
 print("---------------------------")
+try:
+    print(f"access of Student class private variable outside => {adfar.__marks} ")
+except AttributeError:
+    print(f"you can't access private variable of the class outside of the class")
 
 
-
+# Reason and error of private variable access
+"""
+Traceback (most recent call last):
+  File "D:\Gen Ai\python\python gen-ai\practiceQuestion\oops\encapsulate.py", line 55, in <module>
+    print(f"access of Student class private variable outside => {adfar.__marks} ")
+                                                                 ^^^^^^^^^^^^^
+AttributeError: 'Student' object has no attribute '__marks'. Did you mean: 'get_marks'?
+"""
