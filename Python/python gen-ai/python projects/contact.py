@@ -1,10 +1,10 @@
 """
     === Contact manager Application ===
         - Where we can 
-            - Add task
-            - View task
-            - Delete task
-            - Search task
+            - Add Contact
+            - View Contact
+            - Delete Contact
+            - Search Contact
 
 """
 
