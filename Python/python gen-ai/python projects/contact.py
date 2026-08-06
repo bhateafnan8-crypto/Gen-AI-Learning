@@ -29,6 +29,9 @@ def add_contact():
     Contacts.append(contact_info)
 
     print(f"your {name} - details added successfully!!\n")
+
+
+
 #2. View contact
 def view_contact():
     if not Contacts:
@@ -37,6 +40,9 @@ def view_contact():
     print("\n==== Contact List ====")
     for i,c in enumerate(Contacts,start=1):
         print(f"{i}. {c["name"]}  | {c["phone"] } | {c["email"]}")
+
+
+
 #3. Delete contact
 def delete_contact(searchname):
     if searchname.isdigit():
@@ -48,6 +54,9 @@ def delete_contact(searchname):
             print(f"contact {searchname} -> deleted succesfully !!\n")
             return
     print(F"contact for {searchname} not found !!\n")
+
+
+
 
 #4 .Search contact
 def search_contact(searchname):
