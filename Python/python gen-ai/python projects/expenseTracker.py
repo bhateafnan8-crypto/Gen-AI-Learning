@@ -93,7 +93,7 @@ def search_expense():
     
     for i , e in enumerate(Expenses,start=1):
         if search_expense.lower() == e["expense_category"].lower():
-            print(f"{e['expense_name']}  | {e['expense_amount'] } |  {e['expense_category']}") 
+            print(f"{i}. {e['expense_name']}  | {e['expense_amount'] } |  {e['expense_category']}") 
         
 
 # main execution
