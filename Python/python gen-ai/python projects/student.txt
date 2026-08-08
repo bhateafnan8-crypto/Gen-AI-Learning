@@ -1,0 +1,1 @@
+1. adfar |math => 20science => 40eng => 50geog => 60urdu => 90total => 260 | average => 69.33333333333334 | Pass
