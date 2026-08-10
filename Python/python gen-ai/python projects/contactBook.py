@@ -80,7 +80,8 @@ def add_contact():
   phone = input("Enter your phone number => ").strip()
   email = input("Enter your email id => ").strip()
 
-  if not name or any(ch.isdigit() for ch in name):
+  # if not name or any(ch.isdigit() for ch in name):
+  if not name or name.isdigit():
       print("name should not be empty or number...")
       return
   if not phone or not phone.isdigit():
@@ -186,7 +187,7 @@ def main():
   load_from_file()
   while True:
       print("""
-              === Cotact Book Manager ===
+              === Contact Book Manager ===
                1) Add Contact
                2) View All Contacts
                3) Search Contact
@@ -232,13 +233,3 @@ if __name__ == "__main__":
   # for i , c in enumerate(contacts, start=1):
   #    print(f"{i}. {ContactBook.display()}") 
   
-# 2. 
-
-  # Functions:
-  # - add_contact()       → input lo, Contact object banao, list mein add karo
-  # - view_all()          → sab contacts loop karo, formatted print karo
-  # - search_contact()    → naam se search, detail dikhao
-  # - delete_contact()    → naam se search, list se remove karo
-  # - save_to_file()      → file mein write karo
-  # - load_from_file()    → startup pe file se load karo
-  # - main()
