@@ -151,7 +151,7 @@ def save_to_file():
    with open("contact.txt","w") as file:
     for i , c in enumerate(contacts,start=1):
       file.write(f"{i}. {c.name} => {c.phone} | {c.email}\n")
-
+    print("Contacts Saved successfully...")
 
 # load data from file
 
@@ -175,15 +175,18 @@ def load_from_file():
            email = email.strip()
 
            contacts.append(ContactBook(name,phone,email))
-   
+
   except FileNotFoundError:
       print("No saved file found. Starting fresh.")
+  else:
+    print("Contacts Load successfully...")
+     
 # main program execution
 def main():
   load_from_file()
   while True:
       print("""
-              === Student Grade Manager ===
+              === Cotact Book Manager ===
                1) Add Contact
                2) View All Contacts
                3) Search Contact
