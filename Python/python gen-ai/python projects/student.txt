@@ -1,0 +1,1 @@
+1. adfar | scie1 => 30 | scie2 => 40 | math1 => 50 | math2 => 40 | geo => 40 | total => 200 | average => 40.0 | Pass
