@@ -111,7 +111,7 @@ def viewall_contact():
      print(f"{i}. ",end="")
      c.display()
 
-# search contact by name
+# Search contact by name
 
 def search_contact():
   searchcontact = input("Enter name to search contact => ").strip()
@@ -127,6 +127,96 @@ def search_contact():
        break
   else:
      print("Contact not found")
+
+# Delete contact by name
+
+def delete_contact():
+  searchcontact = input("Enter name to search contact => ").strip()
+
+  if not searchcontact or searchcontact.isdigit():
+      print("searchcontact should not be empty or numeric...")
+      return
+
+  for i , c in enumerate(contacts,start=1):
+    if searchcontact.lower() == c.name.lower():
+       contacts.remove(c)
+       print(f"{i}.{searchcontact} delted successfully... ")
+       break
+  else:
+     print("Contact not found....")
+
+# save to file
+
+def save_to_file():
+   with open("contact.txt","w") as file:
+    for i , c in enumerate(contacts,start=1):
+      file.write(f"{i}. {c.name} => {c.phone} | {c.email}\n")
+
+
+# load data from file
+
+def load_from_file():
+  try:
+    with open("contact.txt","r") as file:
+        content = file.read()
+        lines = content.splitlines()
+
+        for line in lines:
+           if not line:
+              continue
+
+           parts = line.split(" => ")
+
+           name = parts[0].split(". ", 1)[1].strip()
+
+           phone, email = parts[1].split(" | ",1)
+
+           phone = phone.strip()
+           email = email.strip()
+
+           contacts.append(ContactBook(name,phone,email))
+   
+  except FileNotFoundError:
+      print("No saved file found. Starting fresh.")
+# main program execution
+def main():
+  load_from_file()
+  while True:
+      print("""
+              === Student Grade Manager ===
+               1) Add Contact
+               2) View All Contacts
+               3) Search Contact
+               4) Delete Contact
+               5) Save Data
+               6) Exit
+        """)
+
+      choice = input("Enter your choice (1-6)=> ")
+
+      if choice == "1":
+          add_contact()
+      elif choice == "2":
+          viewall_contact()
+      elif choice == "3":
+          search_contact()
+      elif choice == "4":
+          delete_contact()
+      elif choice == "5":
+         save_to_file()
+      elif choice == "6":
+          print("Exiting the program!!")
+          break
+      else:
+          print("Invalid choice!! , try again....")
+    
+  
+# __name__ == "__main__" .. calling 
+
+if __name__ == "__main__":
+   main()
+
+
 
 
 
@@ -148,4 +238,4 @@ def search_contact():
   # - delete_contact()    → naam se search, list se remove karo
   # - save_to_file()      → file mein write karo
   # - load_from_file()    → startup pe file se load karo
-  # - main() 
+  # - main()
