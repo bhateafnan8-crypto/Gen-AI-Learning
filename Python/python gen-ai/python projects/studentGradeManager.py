@@ -207,10 +207,12 @@ def load_from_file():
                 name = parts[0].split(". ", 1)[1].strip()
 
                 marks_data = []
-                subject_marks = parts[1].split(" | ")
+                # subject_marks = parts[1].split(" | ")
                
-                for item in subject_marks:
-                    if "total" in item or "average" in item or "Pass" in item or "Fail" in item:
+                for item in parts[1:]:
+                    item = item.strip()
+                    # if "total" in item or "average" in item or "Pass" in item or "Fail" in item:
+                    if item.startswith("total") or item.startswith("average") or item in ("Pass", "Fail"):
                         continue
                    
                     if " => " in item:
