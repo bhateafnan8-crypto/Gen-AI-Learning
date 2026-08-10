@@ -151,7 +151,7 @@ def save_to_file():
    with open("contact.txt","w") as file:
     for i , c in enumerate(contacts,start=1):
       file.write(f"{i}. {c.name} => {c.phone} | {c.email}\n")
-    print("Contacts Saved successfully...")
+   print("Contacts Saved successfully...")
 
 # load data from file
 
