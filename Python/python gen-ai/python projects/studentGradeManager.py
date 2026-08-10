@@ -74,7 +74,8 @@ class Student:
     #   max_marks = 75
     #   allsub_maxmarks = max_marks * 5
     #   average =( total / len(self.marks) ) * 100
-
+      if not self.marks:
+          return 0
       total = self.totalmarks()
       average =( total / len(self.marks) ) 
 
@@ -172,13 +173,13 @@ def save_to_file():
     with open("student.txt","w") as file:
 
       for i , s in enumerate(students , start = 1 ):
-        file.write(f"{i}. {s.name} |")
+        file.write(f"{i}. {s.name} | ")
 
         for mark in s.marks:
-          file.write(f"{mark['subject']} => {mark['marks']}")
-        file.write(f"total => {s.totalmarks()} | average => {s.averagemarks()} | {s.is_pass()}")
+          file.write(f"{mark['subject']} => {mark['marks']} | ")
+        file.write(f"total => {s.totalmarks()} | average => {s.averagemarks()} | {s.is_pass()}\n")
 
-        file.write("\n")
+        # file.write("\n")
       
 # file load
 
@@ -207,18 +208,20 @@ def load_from_file():
 
                 marks_data = []
                 subject_marks = parts[1].split(" | ")
-
+               
                 for item in subject_marks:
                     if "total" in item or "average" in item or "Pass" in item or "Fail" in item:
                         continue
-
+                   
                     if " => " in item:
                         subject, mark = item.split(" => ")
                         marks_data.append({
                             "subject": subject.strip(),
                             "marks": int(mark.strip())
                         })
-
+                if not marks_data:
+                    print(f"Skipping invalid record for {name}")
+                    continue
                 student = Student(name, marks_data)
                 students.append(student)
 
@@ -230,6 +233,7 @@ def load_from_file():
 # main execution
 def main():
   load_from_file()
+  
   while True:
       print("""
               === Student Grade Manager ===
