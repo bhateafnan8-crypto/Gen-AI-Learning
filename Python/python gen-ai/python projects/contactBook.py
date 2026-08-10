@@ -162,6 +162,7 @@ def load_from_file():
         content = file.read()
         lines = content.splitlines()
 
+        loaded = 0
         for line in lines:
            if not line:
               continue
@@ -176,11 +177,14 @@ def load_from_file():
            email = email.strip()
 
            contacts.append(ContactBook(name,phone,email))
-
+           loaded += 1
+        if loaded > 0:
+           print("Contacts Load successfully...")
+        else:
+           print("File empty. Starting fresh.")
   except FileNotFoundError:
       print("No saved file found. Starting fresh.")
-  else:
-    print("Contacts Load successfully...")
+
      
 # main program execution
 def main():
