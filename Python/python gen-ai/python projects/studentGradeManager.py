@@ -71,11 +71,12 @@ class Student:
 # avrage marks calculation
      
     def averagemarks(self):
-      max_marks = 75
-      allsub_maxmarks = max_marks * 5
+    #   max_marks = 75
+    #   allsub_maxmarks = max_marks * 5
+    #   average =( total / len(self.marks) ) * 100
 
       total = self.totalmarks()
-      average =( total / allsub_maxmarks ) * 100
+      average =( total / len(self.marks) ) 
 
       return average
 
@@ -160,7 +161,9 @@ def viewsinglestudent():
           for mark in s.marks:
             print(f"{mark['subject']} => {mark['marks']}")
           print(f"total => {s.totalmarks()} | average => {s.averagemarks()} | {s.is_pass()}")
-
+          break
+    else:
+        print("Student not found")
 
 # file save
      
@@ -259,3 +262,8 @@ def main():
 
 if __name__  == "__main__":
     main()
+
+
+
+
+
