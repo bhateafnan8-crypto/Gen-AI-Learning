@@ -115,13 +115,13 @@ def check_strength(password):
 
 def display_result(password,strength):
 
-   print(f"\n Genrated password => {password} | Strength => {strength}")
+   print(f"\n Generated password => ( {password} ) | Strength => {strength}")
 
 
 # main code execution
 def main():
    while True:
-      print("""   === Password Generator + Strength Checker ===
+      print("""\n   === Password Generator + Strength Checker ===
                   1) Generate Password
                   2) Exit
       """)
