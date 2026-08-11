@@ -64,7 +64,7 @@ def get_parameters():
     pass_number = input("You want numbers in password?  (y,n) => ").strip().lower() == "y"
     pass_special_char = input("You want special characters in password? (y,n) => ").strip().lower() =="y"
 
-    if  not pass_number and pass_special_char:
+    if  not pass_number and not pass_special_char:
       print("Minimum one character type  requied... ")
       return get_parameters()
 
