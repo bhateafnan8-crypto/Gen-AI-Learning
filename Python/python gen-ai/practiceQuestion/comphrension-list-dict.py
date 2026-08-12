@@ -88,6 +88,13 @@ print(f"\nuppercase list from list l2 => {uc}\n")
 """
 # Soltuion-> 
 print("---------------------------")
+keys = ["name", "age", "city"]
+values = ["Afnan", 22, "Mumbai"]
+
+print(f"\n({keys}):({values})\n")
+key_value = {key:value for key, value in zip(keys , values) }
+
+print(f"key:value pair from keys , values list using zip and dict comphrension => {key_value}")
 
 
 # Question-> 
@@ -99,6 +106,12 @@ print("---------------------------")
 """
 # Soltuion-> 
 print("---------------------------")
+num = [1, 2, 3, 4, 5]
+
+print(f"\n num list => {num}\n")
+even_odd = {i:("even" if i % 2 == 0 else "odd" )  for i in num }
+
+print(f"\neven odd list with value (even - odd ) using condition in values section  => {even_odd}\n")
 
 
 # Question-> 
@@ -115,3 +128,15 @@ print("---------------------------")
 # Soltuion-> 
 print("---------------------------")
 
+students = [
+   {"name": "Ali", "marks": 45},
+   {"name": "Sara", "marks": 32},
+   {"name": "Raj", "marks": 78}
+]
+
+print(f"\nstudent list of dict => {students} \n")
+
+
+toppers = [s["name"] for s in students if s["marks"] > 40]
+
+print(f"\ntopper students list => {toppers} ")
