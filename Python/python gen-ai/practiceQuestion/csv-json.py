@@ -234,6 +234,31 @@ print("---------------------------")
 
 
 
+
+with open("results.csv","w",newline="") as f:
+    w2 = csv.writer(f)
+
+    w2.writerow(["Subjects","Marks","Result"])
+    for i in range(1,6):
+        sub = input(f"Enter your Subject{i}=>  ")
+        marks = int(input("Enter your marks => "))
+        w2.writerow([sub,marks,"pass" if marks >= 40 else "fail"])
+   
+
+with open("results.csv","r",newline="") as f:
+    r1 = csv.reader(f)
+
+    pass_stud = 0
+    fail_stud = 0
+    for row in r1:
+        if row[2] == "pass":
+            pass_stud +=1
+        else:
+            fail_stud += 1
+
+    print(f" pass students = > {pass_stud} , fail students = > {fail_stud}")
+
+
 # Question-> 
 """
 8. Do JSON files hain —
@@ -346,3 +371,40 @@ print("---------------------------")
 
 # with open("high_earners.json","w") as f:
 #     json.dump(high_earner,f)
+
+
+    # idhar program sab sahi hai bas loop bahar use hua wahi issue diya
+# for _ in range(5):
+#     sub = input("Enter your Subject =>  ")
+#     marks = int(input("Enter your marks => "))
+
+
+# with open("results.csv","w",newline="") as f:
+#     w2 = csv.writer(f)
+
+#     w2.writerow(["Subjects","Marks","Result"])
+#     w2.writerow([sub,marks,"pass" if marks >= 40 else "fail"])
+#     w2.writerow([sub,marks,"pass" if marks >= 40 else "fail"])
+#     w2.writerow([sub,marks,"pass" if marks >= 40 else "fail"])
+#     w2.writerow([sub,marks,"pass" if marks >= 40 else "fail"])
+#     w2.writerow([sub,marks,"pass" if marks >= 40 else "fail"])
+
+# with open("results.csv","r",newline="") as f:
+#     r1 = csv.reader(f)
+
+#     pass_stud = 0
+#     fail_stud = 0
+#     for row in r1:
+#         if row[2] == "pass":
+#             pass_stud +=1
+#         else:
+#             fail_stud += 1
+
+#     print(f" pass students = > {pass_stud} , fail students = > {fail_stud}")
+
+# ye uper waale ka hi hai bas isme naa meko i jo hai na iterable lena chahiye tha taaki sub number pata chal sake matlab count kitna add hua .. ex sub1 - sub2
+
+# for _ in range(5):
+#         sub = input("Enter your Subject =>  ")
+#         marks = int(input("Enter your marks => "))
+#         w2.writerow([sub,marks,"pass" if marks >= 40 else "fail"])
