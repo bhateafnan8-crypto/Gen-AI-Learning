@@ -231,10 +231,6 @@ with open("high_earners.json","w") as f:
 # Soltuion-> 
 print("---------------------------")
 
-
-
-
-
 with open("results.csv","w",newline="") as f:
     w2 = csv.writer(f)
 
@@ -248,6 +244,9 @@ with open("results.csv","w",newline="") as f:
 with open("results.csv","r",newline="") as f:
     r1 = csv.reader(f)
 
+    header1 = next(r1)
+
+    print(header1)
     pass_stud = 0
     fail_stud = 0
     for row in r1:
@@ -271,14 +270,85 @@ with open("results.csv","r",newline="") as f:
 print("---------------------------")
 
 
+male = {"name": "adfar", "gen": "male"}
+female = {"name": "sana", "gen": "female"}
 
+allstud = [male,female]
+print("\n sol1\n")
+with  open("male_students.json","w") as f:
+    json.dump(male,f)
+with  open("female_students.json","w") as f:
+    json.dump(female,f)
 
+with  open("all_students.json","w") as f:
+    json.dump(allstud,f)
 
+with open("all_students.json","r") as f:
+    loadGen = json.load(f)
 
+    count = 0
+    for row in loadGen:
+        count += 1
 
+    print(count)
+print("\n sol2\n")
 
+with open("all_students.json","r") as f:
+    loadGen = json.load(f)
 
+    # count = 0
+    # for row in loadGen:
+    #     count += 1
 
+print(len(loadGen))
+print("\n sol3\n")
+
+with  open("male_students.json","w") as f:
+    json.dump([male],f)
+with  open("female_students.json","w") as f:
+    json.dump([female],f)
+with  open("all_students.json","w") as f:
+    json.dump([male , female],f)
+
+with open("all_students.json","r") as f:
+    loadGen = json.load(f)
+
+    count = 0
+    for row in loadGen:
+        count += 1
+print(count)
+
+print("\n sol4\n")
+
+with  open("male_students.json","w") as f:
+    json.dump(male,f)
+with  open("female_students.json","w") as f:
+    json.dump(female,f)
+
+with  open("male_students.json","r") as f:
+    males = json.load(f)
+with  open("female_students.json","r") as f:
+    females = json.load(f)
+
+allStudents = [males , females]
+allStudents1 = [males] + [females]
+
+with  open("all_students.json","w") as f:
+    json.dump(allStudents,f)
+
+with open("all_students.json","r") as f:
+    loadGen1 = json.load(f)
+
+print(len(loadGen1))
+
+allStudents1 = [males] + [females]
+with  open("all_students.json","w") as f:
+    json.dump(allStudents,f)
+
+with open("all_students.json","r") as f:
+    loadGen1 = json.load(f)
+
+print(len(loadGen1))
 
 # sahi hai but thoda issue de raha hai
 
@@ -408,3 +478,28 @@ print("---------------------------")
 #         sub = input("Enter your Subject =>  ")
 #         marks = int(input("Enter your marks => "))
 #         w2.writerow([sub,marks,"pass" if marks >= 40 else "fail"])
+
+
+
+# yaha per na count = 0 int hai aur wo dict to dono add nahi ho sakta ye ek issue hai .. aur dono dict ko concat agar karna hai to jo mene kiya wo bhi sahi hai aur wo direct list ko save kar sakte all me.. aur ya len nikal sakte ya count += 1 kar sakte
+
+# male = {"name": "adfar", "gen": "male"}
+# female = {"name": "sana", "gen": "female"}
+
+# allstud = [male,female]
+# with  open("male_students.json","w") as f:
+#     json.dump(male,f)
+# with  open("female_students.json","w") as f:
+#     json.dump(female,f)
+
+# with  open("all_students.json","w") as f:
+#     json.dump(allstud,f)
+
+# with open("all_students.json","r") as f:
+#     loadGen = json.load(f)
+
+#     count = 0
+#     for row in loadGen:
+#         count += row
+
+#     print(count)
