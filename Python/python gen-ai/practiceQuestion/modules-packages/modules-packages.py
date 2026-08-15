@@ -157,6 +157,13 @@ print(n.is_prime(5))
 # Soltuion-> 
 print("---------------------------")
 
+print(os.path.abspath("calc.py"))
+print(os.path.splitext("calc.py"))
+print(os.path.getsize("calc.py"))
+print(os.path.exists("calc.py"))
+print(os.path.isfile("calc.py"))
+print(os.path.isdir("calc.py"))
+
 
 
 # Question-> 
@@ -171,6 +178,16 @@ print("---------------------------")
 """
 # Soltuion-> 
 print("---------------------------")
+
+import config
+
+def show_configs():
+   print(config.DB_NAME)
+   print(config.DEBUG)
+   print(config.MAX_RETRIES)
+
+show_configs()
+
 
 
 #  idhar sahi hai lekin jo file creation hai na usme jo projects / project1.txt hona chahiye .. mene direct kiya is liye wo current me chala gaya.. ya to jo join wala hai na usko ek var me save karke usko hi sidha create karna hai..
