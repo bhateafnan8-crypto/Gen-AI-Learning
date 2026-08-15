@@ -35,7 +35,10 @@ print(sys.argv[0])
 
 print(sys.argv[1])
 
-
+if len(sys.argv) > 1:
+    print(f"Hello! {sys.argv[1]}")
+else:
+    print("There is no arguments provided")
 
 # Question-> 
 """
@@ -54,12 +57,6 @@ calc.mul(2,3)
 calc.div(5,2)
 calc.div(5,0)
 # calc.div(5,"b")
-
-
-
-
-
-
 
 
 
