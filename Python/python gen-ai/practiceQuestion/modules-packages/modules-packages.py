@@ -102,8 +102,24 @@ os.rmdir("projects1")
 # Soltuion-> 
 print("---------------------------")
 
+try:
+   n1 =  sys.argv[1]
+   op =  sys.argv[2]
+   n2 = sys.argv[3]
 
-
+   if op == "+":
+      print(int(n1) + int(n2))
+   elif op == "-":
+      print(int(n1) - int(n2))
+   elif op == "*":
+      print(int(n1) * int(n2))
+   elif op == "/":
+      try :
+         print(int(n1) / int(n2))
+      except ZeroDivisionError:
+         print("Divider should not be zero")
+except IndexError:
+   print("All values required")
 
 
 # Question-> 
@@ -117,6 +133,22 @@ print("---------------------------")
 """
 # Soltuion-> 
 print("---------------------------")
+
+from myutils import string_ops as s
+from myutils import number_ops as n
+
+s.uppercase("hello")
+s.reverse("hello")
+s.word_count("hello world")
+
+print(n.factorial(5))
+print(n.is_even(5))
+print(n.is_prime(5))
+
+
+
+
+
 
 
 
@@ -155,6 +187,33 @@ print("---------------------------")
 #     f.write("Hello")
 
 # print(os.path.join("projects","project1.txt"))
+
+#  yaha per bas shayd wo if else me problem hai.. len se karna tha direct kiya .. required bhi nahi tha try - except handle karlega
+
+
+
+# try:
+#    n1 =  sys.argv[1]
+#    op =  sys.argv[2]
+#    n2 = sys.argv[3]
+
+#    if len(n1) > 1 and len(n2) > 1:
+#       if op == "+":
+#          print(int(n1) + int(n2))
+#       elif op == "-":
+#          print(int(n1) - int(n2))
+#       elif op == "*":
+#          print(int(n1) * int(n2))
+#       elif op == "/":
+#          try :
+#             print(int(n1) / int(n2))
+#          except ZeroDivisionError:
+#             print("Divider should not be zero")
+#    else:
+#       print("n1 , n2 and  op not provided ")
+# except IndexError:
+#    print("All values required")
+
 
 # modules-packages
 # modules-packages.py
