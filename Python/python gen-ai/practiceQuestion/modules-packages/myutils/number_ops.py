@@ -17,6 +17,10 @@ def is_even(num):
     else:
        return False
 
+def is_evens(num):
+    return num % 2 == 0
+
+
 def factorial(num):
     if num == 0 or num == 1:
         return 1
@@ -36,6 +40,6 @@ def is_prime(num):
     if num < 2:
         return False
     for i in range(2,num):
-        if num * i == 0:
+        if num % i == 0:
             return False
     return True
