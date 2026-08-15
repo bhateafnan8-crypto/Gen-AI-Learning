@@ -146,12 +146,6 @@ print(n.is_even(5))
 print(n.is_prime(5))
 
 
-
-
-
-
-
-
 # Question-> 
 """
 7. os.path use karke:
