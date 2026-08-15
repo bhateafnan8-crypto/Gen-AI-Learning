@@ -107,8 +107,8 @@ class WeakPasswordError(Exception):
 try:
     passwords = input("Enter password (min -6) only char => ")
 
-    if len(passwords) < 6 or any(char.isdigit() for char in passwords):
-        raise WeakPasswordError(f"Password {passwords} is weak becuase contains digit and len is less than 6")
+    if len(passwords) < 6 or not any(char.isdigit() for char in passwords):
+        raise WeakPasswordError(f"Password {passwords} is weak becuase not contains digit and len is less than 6")
     print(passwords)
 
 except WeakPasswordError as e:
