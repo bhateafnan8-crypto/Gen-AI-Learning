@@ -17,6 +17,10 @@ def is_even(num):
     else:
        return False
 
+def is_evens(num):
+    return num % 2 == 0
+
+
 def factorial(num):
     if num == 0 or num == 1:
         return 1
