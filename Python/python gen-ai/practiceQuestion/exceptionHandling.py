@@ -88,8 +88,8 @@ class WeakPasswordError(Exception):
 
 try:
     password = input("Enter your password only char no digit => ")
-    if len(password) < 6 or any(ch.isdigit() for ch in password):
-        raise WeakPasswordError(f"your password : {password} is weak =>  password should be > 6 and only charecter no digit")
+    if len(password) < 6 or not any(ch.isdigit() for ch in password):
+        raise WeakPasswordError(f"your password : {password} is weak =>  password should be > 6 and not only charecter , required with digit")
     print(f"your password set successfully check => {password}")
 except WeakPasswordError as e:
     print(F"Error => {e}")
