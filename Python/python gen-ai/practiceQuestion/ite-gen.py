@@ -1,70 +1,215 @@
+# # Question-> 
+# """
+# 1. Generator banao jo 1 se n tak 
+#    sirf even numbers yield kare
+# """
+# # Soltuion-> 
+# print("---------------------------")
+# def even(num):
+#     for i in range(1,num + 1):
+#         if i % 2 == 0:
+#             yield i
+
+# for num in even(10):
+#     print(num)
+
+
+# # Question-> 
+# """
+# 2. Generator banao jo ek list mein se 
+#    ek ek element yield kare — 
+#    manually next() se call karo
+# """
+# # Soltuion-> 
+# print("---------------------------")
+
+# lst = [1,2,3,4,5,6,7,8,9,10]
+
+# def counts(lst):
+#     for i in lst:
+#         yield i 
+
+# gen = counts(lst)
+# print(next(gen))
+# print(next(gen))
+# print(next(gen))
+
+
+# # for i in counts(lst):
+# #     print(i)
+
+
+# # Question-> 
+# """
+# 3. Iterator class banao "Countdown" jo 
+#    n se 0 tak count kare
+# """
+# # Soltuion-> 
+# print("---------------------------")
+# class Countdown:
+#     def __init__(self,start):
+#         self.current = start
+
+#     def __iter__(self):
+#         return self
+
+#     def __next__(self):
+#         if self.current  < 0:
+#             raise StopIteration
+#         self.current -= 1
+#         return self.current + 1 
+
+# for num in Countdown(5):
+#     print(num)
+
+
 # Question-> 
 """
-1. Generator banao jo 1 se n tak 
-   sirf even numbers yield kare
+4. Generator banao jo Fibonacci sequence 
+   yield kare — n terms tak
 """
 # Soltuion-> 
 print("---------------------------")
-def even(num):
-    for i in range(1,num + 1):
-        if i % 2 == 0:
-            yield i
+def genfibo(n):
+    a,b = 0,1
+    count = 0
 
-for num in even(10):
+    while count < n:
+        yield a 
+        a,b = b , a + b
+        count += 1
+
+fibo = genfibo(4)
+
+print(next(fibo))
+print(next(fibo))
+print(next(fibo))
+print(next(fibo))
+
+for num in genfibo(5):
     print(num)
 
+    # for fibo in range(2,n+1):
 
 # Question-> 
 """
-2. Generator banao jo ek list mein se 
-   ek ek element yield kare — 
-   manually next() se call karo
+5. Generator banao jo ek file ki lines 
+   ek ek karke yield kare 
+   (pehle ek dummy file banao)
 """
 # Soltuion-> 
 print("---------------------------")
 
-lst = [1,2,3,4,5,6,7,8,9,10]
+    
+def gens():
+    with open("gen.txt","r") as f :
+        reads = f.readlines()
+        for i in reads:
+            yield i
 
-def counts(lst):
-    for i in lst:
-        yield i 
+itegen = gens()
 
-gen = counts(lst)
-print(next(gen))
-print(next(gen))
-print(next(gen))
+print(next(itegen))
 
-
-# for i in counts(lst):
+# for i in itegen():
 #     print(i)
 
 
-
 # Question-> 
 """
-3. Iterator class banao "Countdown" jo 
-   n se 0 tak count kare
+6. Iterator class banao "EvenNumbers" jo 
+   0 se shuru karke sirf even numbers de — 
+   infinite iterator (StopIteration kabhi nahi)
+   Sirf pehle 5 next() se lo
 """
 # Soltuion-> 
 print("---------------------------")
-
-
-class Countdown:
-    def __init__(self,start):
-        self.current = start
+class EvenNumbers:
+    def __init__(self):
+        self.curr = 0
 
     def __iter__(self):
         return self
 
     def __next__(self):
-        if self.current  < 0:
-            raise StopIteration
-        self.current -= 1
-        return self.current + 1 
 
-for num in Countdown(5):
-    print(num)
+        temp = self.curr
 
+        self.curr += 2
+
+        # temp = self.curr
+
+        return temp
+        
+
+even = EvenNumbers()
+
+print(next(even))
+print(next(even))
+print(next(even))
+print(next(even))
+
+
+# Question-> 
+"""
+7. Generator expression use karo 
+   (list comprehension jaisi — but generator):
+   squares = (x*x for x in range(10))
+   - Pehle 3 next() se lo
+   - Phir baaki for loop se print karo
+"""
+# Soltuion-> 
+print("---------------------------")
+
+def gensq():
+    squares = (x*x for x in range(10))
+    yield from squares
+
+sq = gensq()
+
+
+print(next(sq))
+print(next(sq))
+print(next(sq))
+
+for i in sq:
+    print(i)
+
+print("\n gen expression 2  \n")
+
+squares = (x*x for x in range(10))
+
+print(next(squares))
+print(next(squares))
+print(next(squares))
+
+for i in squares:
+    print(i)
+
+
+# Question-> 
+"""
+8. Ek generator banao "batch(lst, size)" jo 
+   list ko chunks mein yield kare:
+   batch([1,2,3,4,5,6,7], 3) 
+   → [1,2,3] → [4,5,6] → [7]
+"""
+# Soltuion-> 
+print("---------------------------")
+
+def genchunks(lst,size):
+    for i in range(0,len(lst),size):
+        yield lst[i:i+size]
+    
+for chunk in genchunks([1,2,3,4,5,6,7,8,9,10],3):
+    print(chunk)
+
+for chunk in genchunks([1,2,3,4,5,6,7],3):
+    print(chunk)
+
+
+    #  stop = len(lst)
+    #     step = size
 
 
 # ite-gen.py
