@@ -43,10 +43,10 @@ def uppercase(func):
 
 @uppercase
 
-def uppercase():
+def greets():
     return "hello, afnan"
 
-print(uppercase())
+print(greets())
 
 
 # Question-> 
@@ -79,17 +79,83 @@ def greet(name):
 greet("Adfar")
 
 
+# Question-> 
 """
+1. Ek decorator banao @logger jo 
+   function ka naam aur arguments 
+   call hone pe print kare:
+   "Calling greet with args: ('Afnan',)"
+"""
+# Soltuion-> 
+print("---------------------------")
 
+
+
+
+
+
+# Question-> 
 """
+2. Ek decorator banao @validate_positive jo 
+   function ke arguments check kare — 
+   agar koi argument negative ho toh 
+   ValueError raise kare
+"""
+# Soltuion-> 
+print("---------------------------")
+
+
+
+
+
+
+# Question-> 
+"""
+3. Do decorators stack karo:
+   @timer + @logger dono ek saath 
+   ek function pe lagao aur dekho 
+   order mein kya hota hai
+"""
+# Soltuion-> 
+print("---------------------------")
+
+
+
+
+
+
+# Question-> 
+"""
+4. Ek decorator banao @cache jo 
+   function ka result store kare — 
+   same arguments dobara aaye toh 
+   function call na kare, cached result do
+   (dict use karo store karne ke liye)
+"""
+# Soltuion-> 
+print("---------------------------")
+
+
+
+
+
+
+# Question-> 
+"""
+5. Ek decorator banao @retry(n) jo 
+   agar function exception throw kare 
+   toh n baar retry kare — 
+   sab fail ho jaaye toh finally raise kare
+"""
+# Soltuion-> 
+print("---------------------------")
+
 
 
 
 
 
 # decorator.py
-
-
 
 #  galat hai pura hi
 
