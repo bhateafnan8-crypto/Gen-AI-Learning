@@ -116,7 +116,7 @@ print("---------------------------")
 
 def validate_positive(func):
     def wrapper(*args,**kwargs):
-        result = func(*args,**kwargs)
+        
 
         try:
             args_value = ", ".join(str(arg) for arg in args)
@@ -127,6 +127,7 @@ def validate_positive(func):
             if int(args_value) == 0:
                 raise ValueError("Number should not be zero,null,empty,undefined ...")
             print(f"Calling {func.__name__} with your positivie number : {args_value}")
+            result = func(*args,**kwargs)
             return result
         except ValueError as e:
             print(f"Error: {e}")
