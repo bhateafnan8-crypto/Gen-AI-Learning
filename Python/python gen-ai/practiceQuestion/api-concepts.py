@@ -1,5 +1,3 @@
-import  requests
-
 import requests
 
 # --- GET request ---
