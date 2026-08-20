@@ -65,3 +65,12 @@ print("Welcome to Python! \n \t Learn to code \n \t \t  Have fun!")
 # git checkout learning-gap-concepts
 # git checkout main
 #  git pull
+
+
+
+
+"""
+cd python
+cd "python gen-ai" 
+cd practiceQuestion 
+"""
