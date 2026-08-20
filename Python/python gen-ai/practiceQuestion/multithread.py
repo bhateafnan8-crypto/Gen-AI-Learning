@@ -125,7 +125,6 @@ def incr2_lock():
           counter +=1
 
 
-
 # Question-> 
 """
 6. Thread ko daemon banao:
@@ -137,6 +136,9 @@ def incr2_lock():
 # Soltuion-> 
 # print("---------------------------")
 
+def infinite():
+    while True:
+        print("Infinite loop....")
 
 
 
@@ -149,7 +151,8 @@ def incr2_lock():
 # Soltuion-> 
 # print("---------------------------")
 
-
+def sqr(n):
+    return n * n
 
 
 # Question-> 
@@ -165,6 +168,10 @@ def incr2_lock():
 # Soltuion-> 
 # print("---------------------------")
 
+def downloads(filename,delay):
+    print(f"{filename} downloading...")
+    time.sleep(delay)
+    print(f"{filename} Done...")
 
 
 
@@ -235,6 +242,39 @@ if __name__ == "__main__":
     t511.join()
     t512.join()
 
+    print("---------------------------")
+
+    t61 = threading.Thread(target=infinite,daemon=True)
+    t61.start()
+    time.sleep(3)
+
+    print("---------------------------")
+
+    with multiprocessing.Pool(processes=4) as pool:
+        result = pool.map(sqr,[1,2,3,4,5])
+        print(result)
+
+    print("---------------------------")
+    delays = [2,3,1]
+    Threaddownload = []
+
+    start = time.time()
+
+    for i in range(1,4):
+        filename = f"file{i}.txt"
+        delay = delays[i - 1]
+        t81 = threading.Thread(target=downloads,args=(filename,delay))
+
+        Threaddownload.append(t81)
+
+        t81.start()
+
+    for t in Threaddownload:
+        t.join()
+
+    print(f"Total time : {time.time() -  start:.2f} sec")
+
+
 # sahi hai lekin loop thread ke waqt lagega ... aur call wo loop ke hisab se hoga aur wahi jaaygi fir sqaure print hoga
     # def sq(n):
     #     for _ in range(1,5):
@@ -260,6 +300,16 @@ if __name__ == "__main__":
     # t44.join()
     # t45.join()
 
+
+#  sahi hai but wo thoda sleep me issue hai.. usko main me dena chahiye wo list ko usko func me le liya.. jisse direct ho raha tha..
+
+
+# def downloads(filename):
+#     print(f"{filename} downloading...")
+#     print(f"{filename} Done...")
+#     lst = [2,3,1]
+#     for i in lst:
+#         time.sleep(i)
 
 # multithread.py
 
