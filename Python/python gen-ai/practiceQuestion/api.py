@@ -134,7 +134,7 @@ try:
 
    print(f"first 5 post titles : [ ")
    for i in range(5):
-      print(f"  {json_data['title']},")
+      print(f"  {json_post['title']},")
    print(" ] ")
    print("-" * 20)
    # print("-" * 20)
