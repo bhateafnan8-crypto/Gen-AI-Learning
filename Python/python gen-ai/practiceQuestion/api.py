@@ -127,7 +127,6 @@ try:
 
    print(f"status code : {response4.status_code}")
    print("-" * 20)
-
    json_post = response4.json()
    # print(f"json data : {json_post}")
    print("-" * 20)
