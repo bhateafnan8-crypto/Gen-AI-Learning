@@ -133,8 +133,11 @@ try:
    print("-" * 20)
 
    print(f"first 5 post titles : [ ")
-   for i in range(5):
-      print(f"  {json_post['title']},")
+   for post in json_post[:5]:
+      print(f"  {post['title']},")
+
+   # for i in range(5):
+   #    print(f"  {json_post[i]['title']},")
    print(" ] ")
    print("-" * 20)
    # print("-" * 20)
@@ -195,7 +198,7 @@ def fetch(url,ind):
       trs[ind] = t1.json()
    except requests.exceptions.RequestException as e:
       # print(f"Error in {trs[ind] =}  {str[e]}")
-      trs[ind] = {"Error : ",str[e]}
+      trs[ind] = {"Error : ",str(e)}
 
 urls = [
    "https://jsonplaceholder.typicode.com/posts/1",
