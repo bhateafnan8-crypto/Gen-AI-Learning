@@ -12,6 +12,9 @@ conn = sqlite3.connect("students.db")
 cursor = conn.cursor()
 
 cursor.execute("""
+      DROP TABLE IF EXISTS students
+""")
+cursor.execute("""
    CREATE TABLE IF NOT EXISTS students(
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       name TEXT,
@@ -20,15 +23,9 @@ cursor.execute("""
 """)
 
 cursor.execute("INSERT INTO students (name,marks) VALUES (?,?)",("Adfar",30))
-conn.commit()
-
 cursor.execute("INSERT INTO students (name,marks) VALUES (?,?)",("Safdar",40))
-conn.commit()
-
 cursor.execute("INSERT INTO students (name,marks) VALUES (?,?)",("asfar",50))
 conn.commit()
-
-
 
 cursor.execute("SELECT * FROM students")
 
@@ -37,7 +34,7 @@ rows = cursor.fetchall()
 for row in rows:
     print(row)
 
-conn.close()
+# conn.close()
 
 
 # Question-> 
@@ -48,34 +45,14 @@ conn.close()
 # Soltuion-> 
 print("---------------------------")
 
-conn = sqlite3.connect("students1.db")
-cursor = conn.cursor()
-
-cursor.execute("""
-   CREATE TABLE IF NOT EXISTS students1(
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      name TEXT,
-      marks INTEGER
-   )
-""")
-
-cursor.execute("INSERT INTO students1 (name,marks) VALUES (?,?)",("Adfar",30))
-conn.commit()
-
-cursor.execute("INSERT INTO students1 (name,marks) VALUES (?,?)",("Safdar",40))
-conn.commit()
-
-cursor.execute("INSERT INTO students1 (name,marks) VALUES (?,?)",("asfar",50))
-conn.commit()
-
-cursor.execute("SELECT * FROM students1 WHERE marks > ?",(40,))
-
+cursor.execute("SELECT * FROM students WHERE marks > ?",(40,))
+# conn.commit()
 toppr = cursor.fetchall()
 
 for top in toppr:
     print(top)
 
-conn.close()
+# conn.close()
 
 
 # Question-> 
@@ -87,45 +64,26 @@ conn.close()
 # Soltuion-> 
 print("---------------------------")
 
-conn = sqlite3.connect("students2.db")
-cursor = conn.cursor()
-
-cursor.execute("""
-   CREATE TABLE IF NOT EXISTS students2(
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      name TEXT,
-      marks INTEGER
-   )
-""")
-
-cursor.execute("INSERT INTO students2 (name,marks) VALUES (?,?)",("Adfar",30))
+cursor.execute("UPDATE students SET marks = ? WHERE name = ?",(20,"Adfar"))
 conn.commit()
 
-cursor.execute("INSERT INTO students2 (name,marks) VALUES (?,?)",("Safdar",40))
-conn.commit()
-
-cursor.execute("INSERT INTO students2 (name,marks) VALUES (?,?)",("asfar",50))
-conn.commit()
-
-
-cursor.execute("UPDATE students2 SET marks = ? WHERE name = ?",(20,"Adfar"))
-conn.commit()
-
-cursor.execute("SELECT * FROM students2")
+cursor.execute("SELECT * FROM students")
 
 toppr1 = cursor.fetchall()
+print("After update : ")
 
 for top in toppr1:
     print(top)
 
-cursor.execute("DELETE FROM students2 WHERE name = ?",("Safdar",))
+cursor.execute("DELETE FROM students WHERE name = ?",("Safdar",))
 conn.commit()
 
-cursor.execute("SELECT * FROM students2")
+cursor.execute("SELECT * FROM students")
 
-toppr1 = cursor.fetchall()
+toppr2 = cursor.fetchall()
 
-for top in toppr1:
+print("After delete : ")
+for top in toppr2:
     print(top)
 
 conn.close()
@@ -136,3 +94,51 @@ conn.close()
 
 
 # db.py
+
+
+
+
+
+
+
+#  niche wala galat to nahi lekin issue de raha hai..
+   # conn = sqlite3.connect("students1.db")
+   # cursor = conn.cursor()
+
+   # cursor.execute("""
+   #    CREATE TABLE IF NOT EXISTS students1(
+   #       id INTEGER PRIMARY KEY AUTOINCREMENT,
+   #       name TEXT,
+   #       marks INTEGER
+   #    )
+   # """)
+
+   # cursor.execute("INSERT INTO students1 (name,marks) VALUES (?,?)",("Adfar",30))
+   # conn.commit()
+
+   # cursor.execute("INSERT INTO students1 (name,marks) VALUES (?,?)",("Safdar",40))
+   # conn.commit()
+
+   # cursor.execute("INSERT INTO students1 (name,marks) VALUES (?,?)",("asfar",50))
+   # conn.commit() 
+
+
+   # conn = sqlite3.connect("students2.db")
+   # cursor = conn.cursor()
+
+   # cursor.execute("""
+   #    CREATE TABLE IF NOT EXISTS students2(
+   #       id INTEGER PRIMARY KEY AUTOINCREMENT,
+   #       name TEXT,
+   #       marks INTEGER
+   #    )
+   # """)
+
+   # cursor.execute("INSERT INTO students2 (name,marks) VALUES (?,?)",("Adfar",30))
+   # conn.commit()
+
+   # cursor.execute("INSERT INTO students2 (name,marks) VALUES (?,?)",("Safdar",40))
+   # conn.commit()
+
+   # cursor.execute("INSERT INTO students2 (name,marks) VALUES (?,?)",("asfar",50))
+   # conn.commit()
