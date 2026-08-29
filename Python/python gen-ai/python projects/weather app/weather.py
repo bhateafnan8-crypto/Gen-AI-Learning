@@ -39,14 +39,14 @@ import requests
 city_name = input("Enter your city name to get weather : ").strip()
 
 # validation of city
-def validate_city(city):
+def validate_city(city_name):
     patern = r"^[A-Za-z][A-Za-z\s\-\.']{1,49}$"
 
-    return bool(re.match(patern,city))
+    return bool(re.match(patern,city_name))
 
 # fetch weather
 def fetch_weather(city1):
-    if not validate_city(city_name):
+    if not validate_city(city1):
         print("Invalid city")
         return None
     try:
@@ -71,7 +71,7 @@ def fetch_weather(city1):
 
 # display weather
 def display_weather(city2):
-    fetch1 = fetch_weather(city_name)
+    fetch1 = fetch_weather(city2)
 
     if fetch1:
         current = fetch1['current_condition'][0]
