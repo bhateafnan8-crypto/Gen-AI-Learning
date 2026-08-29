@@ -106,15 +106,6 @@ if __name__ == "__main__":
     main()
 
 
-
-
-#   - validate_city()  → regex se input check
-#   - fetch_weather()  → API call + error handling
-#   - display_weather() → formatted print
-#   - save_to_json()   → JSON file mein save
-#   - main() 
-
-
 #  galat hai ...
 
     # import json
@@ -171,15 +162,6 @@ if __name__ == "__main__":
 
     #     with open("weather.json","w") as file:
     #         file.writable(file,disp)
-
-
-
-
-
-
-
-
-
 
 
 # weather.py
