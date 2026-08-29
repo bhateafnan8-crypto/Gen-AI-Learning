@@ -115,6 +115,8 @@ class TodoManager:
     statusid = input("Which task you want to mark as done (id) :")
 
     self.cursor.execute("UPDATE tasks SET status = ? WHERE id = ?",("done",statusid))
+    if self.cursor.rowcount == 0:
+      print("Task not found!")
     self.conn.commit()
 
 # delete task
@@ -123,6 +125,8 @@ class TodoManager:
     dltid = input("Which task you want to mark as done (id) :")
     
     self.cursor.execute("DELETE FROM tasks WHERE id = ?",(dltid,))
+    if self.cursor.rowcount == 0:
+      print("Task not found!")
     self.conn.commit()
 
 #  export to csv
@@ -133,7 +137,7 @@ class TodoManager:
     rows = self.cursor.fetchall()
 
     filename = input("Enter only filname you want save no extension (.csv only set bydefault): ")
-    with open(filename+".csv","w",newline="\n") as file:
+    with open(filename+".csv","w",newline="") as file:
       writer =csv.writer(file)
       writer.writerow(["id","title","priority","status"])
       for row in rows:
