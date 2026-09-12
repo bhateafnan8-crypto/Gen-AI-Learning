@@ -73,4 +73,6 @@ print("Welcome to Python! \n \t Learn to code \n \t \t  Have fun!")
 cd python
 cd "python gen-ai" 
 cd practiceQuestion 
+cd "python projects"
+cd csvDataAnalyzer
 """
